@@ -1,0 +1,137 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 2,
+    "start": "2023-03-12T17:57:24.933Z",
+    "end": "2023-03-12T17:57:41.486Z",
+    "duration": 16553,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e00e604b-ef65-4bd5-81b2-c45064e27d7c",
+      "title": "",
+      "fullFile": "cypress/e2e/sopra.cy.js",
+      "file": "cypress/e2e/sopra.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f945ecb8-8c1d-47b1-849e-e99e0e8c62cf",
+          "title": "Google search Apple",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Positive - over 1000000",
+              "fullTitle": "Google search Apple Positive - over 1000000",
+              "timedOut": null,
+              "duration": 7921,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"/sopra.cy.js/Google search Apple -- Positive - over 1000000 (failed).png\"\n      }\n    ]\n  ]\n}",
+              "code": "cy.get('div[id=\"result-stats\"]').contains(\"results (\");\ncy.get('div[id=\"result-stats\"]').contains(\"000,000\");\ncy.get('div[id=\"result-stats\"]').invoke('text').then(text => {\n  let fullText = text.toString();\n  let cutText = text.toString().replace(\"About \", \"\").split(\" results (\");\n  let pattern = /[0-9]+/g;\n  var number = cutText[0].match(pattern);\n  cy.log(\"--------------------------------------------------> Full Text: \" + fullText);\n  cy.log(\"--------------------------------------------------> Cut Text: \" + cutText);\n  let results = cutText[0].replaceAll(\",\", \"\").match(pattern); // finally supress ,\n  cy.log(\"=================================================>> RESULTS: \" + results);\n  cy.log(\"type: \" + typeof Number(results));\n  expect(parseInt(results)).to.be.greaterThan(1000000);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'results (' within the element: <div#result-stats> but never did.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'results (' within the element: <div#result-stats> but never did.\n    at ./cypress/e2e/sopra.cy.js/ (webpack:///./cypress/e2e/sopra.cy.js:15:38)\n    at ../driver/src/cypress/cy.ts/setRunnable/runnable.fn (https://www.google.es/__cypress/runner/cypress_runner.js:151413:43)\n    at callFn (https://www.google.es/__cypress/runner/cypress_runner.js:104964:21)\n    at ../driver/src/cypress/runner.ts/create/onRunnableRun (https://www.google.es/__cypress/runner/cypress_runner.js:158443:30)\n    at finallyHandler (https://www.google.es/__cypress/runner/cypress_runner.js:5468:23)\n    at tryCatcher (https://www.google.es/__cypress/runner/cypress_runner.js:8914:23)\n    at ../../node_modules/bluebird/js/release/promise.js/</module.exports/Promise.prototype._settlePromiseFromHandler (https://www.google.es/__cypress/runner/cypress_runner.js:6849:31)\n    at ../../node_modules/bluebird/js/release/promise.js/</module.exports/Promise.prototype._settlePromise (https://www.google.es/__cypress/runner/cypress_runner.js:6906:18)\n    at ../../node_modules/bluebird/js/release/promise.js/</module.exports/Promise.prototype._settlePromise0 (https://www.google.es/__cypress/runner/cypress_runner.js:6951:10)\n    at ../../node_modules/bluebird/js/release/promise.js/</module.exports/Promise.prototype._settlePromises (https://www.google.es/__cypress/runner/cypress_runner.js:7031:18)\n    at _drainQueueStep (https://www.google.es/__cypress/runner/cypress_runner.js:3621:12)\n    at _drainQueue (https://www.google.es/__cypress/runner/cypress_runner.js:3614:24)\n    at ../../node_modules/bluebird/js/release/async.js/</Async.prototype._drainQueues (https://www.google.es/__cypress/runner/cypress_runner.js:3630:16)\n    at ../../node_modules/bluebird/js/release/async.js/</Async/this.drainQueues (https://www.google.es/__cypress/runner/cypress_runner.js:3500:14)",
+                "diff": null
+              },
+              "uuid": "3911d252-9b4c-43f9-8a88-547e64581e26",
+              "parentUUID": "f945ecb8-8c1d-47b1-849e-e99e0e8c62cf",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Negative - not under 10000",
+              "fullTitle": "Google search Apple Negative - not under 10000",
+              "timedOut": null,
+              "duration": 7131,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"/sopra.cy.js/Google search Apple -- Negative - not under 10000 (failed).png\"\n      }\n    ]\n  ]\n}",
+              "code": "cy.get('div[id=\"result-stats\"]').contains(\"results (\");\ncy.get('div[id=\"result-stats\"]').contains(\"000,000\");\ncy.get('div[id=\"result-stats\"]').invoke('text').then(text => {\n  let fullText = text.toString();\n  let cutText = text.toString().replace(\"About \", \"\").split(\" results (\");\n  let pattern = /[0-9]+/g;\n  cy.log(\"--------------------------------------------------> Full Text: \" + fullText);\n  cy.log(\"--------------------------------------------------> Cut Text: \" + cutText[0]);\n  let results = cutText[0].replaceAll(\",\", \"\").match(pattern); // finally supress ,\n  cy.log(\"=================================================>> RESULTS: \" + results);\n  cy.log(\"type: \" + typeof Number(results));\n  expect(parseInt(results)).not.to.be.lessThan(10000);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'results (' within the element: <div#result-stats> but never did.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'results (' within the element: <div#result-stats> but never did.\n    at ./cypress/e2e/sopra.cy.js/ (webpack:///./cypress/e2e/sopra.cy.js:38:45)\n    at ../driver/src/cypress/cy.ts/setRunnable/runnable.fn (https://www.google.es/__cypress/runner/cypress_runner.js:151413:43)\n    at callFn (https://www.google.es/__cypress/runner/cypress_runner.js:104964:21)\n    at ../driver/src/cypress/runner.ts/create/onRunnableRun (https://www.google.es/__cypress/runner/cypress_runner.js:158443:30)\n    at finallyHandler (https://www.google.es/__cypress/runner/cypress_runner.js:5468:23)\n    at tryCatcher (https://www.google.es/__cypress/runner/cypress_runner.js:8914:23)\n    at ../../node_modules/bluebird/js/release/promise.js/</module.exports/Promise.prototype._settlePromiseFromHandler (https://www.google.es/__cypress/runner/cypress_runner.js:6849:31)\n    at ../../node_modules/bluebird/js/release/promise.js/</module.exports/Promise.prototype._settlePromise (https://www.google.es/__cypress/runner/cypress_runner.js:6906:18)\n    at ../../node_modules/bluebird/js/release/promise.js/</module.exports/Promise.prototype._settlePromise0 (https://www.google.es/__cypress/runner/cypress_runner.js:6951:10)\n    at ../../node_modules/bluebird/js/release/promise.js/</module.exports/Promise.prototype._settlePromises (https://www.google.es/__cypress/runner/cypress_runner.js:7031:18)\n    at _drainQueueStep (https://www.google.es/__cypress/runner/cypress_runner.js:3621:12)\n    at _drainQueue (https://www.google.es/__cypress/runner/cypress_runner.js:3614:24)\n    at ../../node_modules/bluebird/js/release/async.js/</Async.prototype._drainQueues (https://www.google.es/__cypress/runner/cypress_runner.js:3630:16)\n    at ../../node_modules/bluebird/js/release/async.js/</Async/this.drainQueues (https://www.google.es/__cypress/runner/cypress_runner.js:3500:14)",
+                "diff": null
+              },
+              "uuid": "0b6ab427-8852-4de0-931a-99098b848147",
+              "parentUUID": "f945ecb8-8c1d-47b1-849e-e99e0e8c62cf",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "3911d252-9b4c-43f9-8a88-547e64581e26",
+            "0b6ab427-8852-4de0-931a-99098b848147"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15052,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportPageTitle": "sopra",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportDir": "report/mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

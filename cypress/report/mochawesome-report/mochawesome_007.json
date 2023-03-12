@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-03-12T18:00:56.007Z",
+    "end": "2023-03-12T18:01:06.317Z",
+    "duration": 10310,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f5174c95-4f7d-4cad-874c-2b064bf85a3a",
+      "title": "",
+      "fullFile": "cypress/e2e/sopra.cy.js",
+      "file": "cypress/e2e/sopra.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "33ef2205-b0bc-4245-a554-8740f6e62026",
+          "title": "Google search Apple",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Positive - over 1000000",
+              "fullTitle": "Google search Apple Positive - over 1000000",
+              "timedOut": null,
+              "duration": 4150,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('div[id=\"result-stats\"]').contains(\"results (\");\ncy.get('div[id=\"result-stats\"]').contains(\"000,000\");\ncy.get('div[id=\"result-stats\"]').invoke('text').then(text => {\n  let fullText = text.toString();\n  let cutText = text.toString().replace(\"About \", \"\").split(\" results (\");\n  let pattern = /[0-9]+/g;\n  var number = cutText[0].match(pattern);\n  cy.log(\"--------------------------------------------------> Full Text: \" + fullText);\n  cy.log(\"--------------------------------------------------> Cut Text: \" + cutText);\n  let results = cutText[0].replaceAll(\",\", \"\").match(pattern); // finally supress ,\n  cy.log(\"=================================================>> RESULTS: \" + results);\n  cy.log(\"type: \" + typeof Number(results));\n  expect(parseInt(results)).to.be.greaterThan(1000000);\n});",
+              "err": {},
+              "uuid": "b5dd1747-0e83-41f0-95dd-e348b935d0a2",
+              "parentUUID": "33ef2205-b0bc-4245-a554-8740f6e62026",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Negative - not under 10000",
+              "fullTitle": "Google search Apple Negative - not under 10000",
+              "timedOut": null,
+              "duration": 4570,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('div[id=\"result-stats\"]').contains(\"results (\");\ncy.get('div[id=\"result-stats\"]').contains(\"000,000\");\ncy.get('div[id=\"result-stats\"]').invoke('text').then(text => {\n  let fullText = text.toString();\n  let cutText = text.toString().replace(\"About \", \"\").split(\" results (\");\n  let pattern = /[0-9]+/g;\n  cy.log(\"--------------------------------------------------> Full Text: \" + fullText);\n  cy.log(\"--------------------------------------------------> Cut Text: \" + cutText[0]);\n  let results = cutText[0].replaceAll(\",\", \"\").match(pattern); // finally supress ,\n  cy.log(\"=================================================>> RESULTS: \" + results);\n  cy.log(\"type: \" + typeof Number(results));\n  expect(parseInt(results)).not.to.be.lessThan(10000);\n});",
+              "err": {},
+              "uuid": "88b35545-3963-4acd-b759-a826dd60684b",
+              "parentUUID": "33ef2205-b0bc-4245-a554-8740f6e62026",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b5dd1747-0e83-41f0-95dd-e348b935d0a2",
+            "88b35545-3963-4acd-b759-a826dd60684b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8720,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportPageTitle": "sopra",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportDir": "report/mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
