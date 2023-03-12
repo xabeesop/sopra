@@ -1,9 +1,22 @@
-const { defineConfig } = require("cypress");
+const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
+  projectId: "SOPRA test",
+  reporter: 'cypress-mochawesome-reporter',
   e2e: {
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      require('cypress-mochawesome-reporter/plugin')(on);
     },
+  },
+  reporterOptions: {
+    charts: true,
+    reportPageTitle: "sopra",
+    embeddedScreenshots: true,
+    inlineAssets: true,
+    saveAllAttempts: true,
+    "overwrite": false,
+    "html": true,
+    "json": true,
+    "reportDir": "report/mochawesome-report"
   },
 });
